@@ -1,4 +1,6 @@
-script_name1=`basename $0`
+#!/usr/bin/env bash
+
+script_name1=$(basename "$0")
 script_name=${script_name1:0:${#script_name1}-3}
 
 python -m torch.distributed.launch \
@@ -9,4 +11,4 @@ python -m torch.distributed.launch \
     --batch_size 1 \
     --dilation \
     --coco_path ../data/coco \
-    --output_dir output/$script_name
+    --output_dir "output/$script_name"
